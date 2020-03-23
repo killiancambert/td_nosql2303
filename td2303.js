@@ -14,7 +14,7 @@ db.createCollection('sports', {
           description: "time of a game or roughly"
         },
         collective: {
-          bsonType: "boolean",
+          bsonType: "bool",
           description: "is it a collective sport or no"
         }
       }
