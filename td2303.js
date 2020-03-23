@@ -1,14 +1,23 @@
 ----- TD 23/03 -----
 
-db.createCollection('sport', {
-  $jsonSchema: {
-    required: ["name", "collective"],
-    properties: {
-      name: {
-        bsonType: "string",
-        description: "name of the sport"
-      },
-      
+db.createCollection('sports', {
+  validator: {
+    $jsonSchema: {
+      required: ["name", "collective"],
+      properties: {
+        name: {
+          bsonType: "string",
+          description: "name of the sport"
+        },
+        time: {
+          bsonType: "string",
+          description: "time of a game or roughly"
+        },
+        collective: {
+          bsonType: "boolean",
+          description: "is it a collective sport or no"
+        }
+      }
     }
   }
 })
@@ -16,9 +25,9 @@ db.createCollection('sport', {
 // On créé notre jeu de données
 
 db.sport.insertMany([
-   { name: "foot", time: 90, collective: true },
-   { name: "basket", time: 48, collective: true },
-   { name: "tennis", time: 90, collective: false }
+   { name: "foot", time: "90", collective: true },
+   { name: "basket", time: "48", collective: true },
+   { name: "tennis", time: "90", collective: false }
 ])
 
 
